@@ -1,0 +1,29 @@
+{
+    "name": "Sensor",
+    "description": "",
+    "streams": {
+        "data": {
+            "channels": {
+                "temperature": {
+                    "type": "number",
+                    "unit": "degrees"
+                },
+                "humidity": {
+                    "type": "number",
+                    "unit": "percentage"
+                },
+                "luminosity": {
+                    "type": "number",
+                    "unit": "light"
+                } 
+            }
+        }
+    },
+    "customFields": {
+        "model": "XM1000",
+        "location": "",
+        "associations": "temperature/hvac,humidity/hvac,luminosity/light"
+    },
+    "actions": [],
+    "properties": []
+}

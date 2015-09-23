@@ -1,0 +1,5 @@
+*.class
+*.properties
+servioticy/data/*
+servioticy/models/sensor_*
+servioticy/res/key

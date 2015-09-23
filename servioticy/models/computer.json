@@ -1,0 +1,20 @@
+{
+    "name": "Sensor",
+    "description": "",
+    "streams": {
+        "data": {
+            "channels": {
+                "computer": {
+                    "type": "number"
+                }
+            }
+        }
+    },
+    "customFields": {
+        "model": "Computer",
+        "location": "",
+        "associations": "computer/computer"
+    },
+    "actions": [],
+    "properties": []
+}
