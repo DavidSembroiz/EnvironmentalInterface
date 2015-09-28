@@ -11,8 +11,7 @@ public class HttpConnection {
 	
     private Properties prop;
     private String SERVIOTICY_URL;
-	private String API_KEY;
-    private Utils uts;
+    private String API_KEY;
 
 
     public HttpConnection() {
@@ -49,7 +48,7 @@ public class HttpConnection {
 			String subs = readFileFromName("servioticy/res/subscribe.json");
 			writeOutput(con.getOutputStream(), subs);
 			
-			String response = this.readHttpResponse(con.getInputStream());
+			this.readHttpResponse(con.getInputStream());
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

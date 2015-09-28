@@ -105,6 +105,7 @@ public class Utils {
         try {
             BufferedReader br = new BufferedReader(new FileReader(ROOT_PATH + "res/id" + id));
 		    soID = br.readLine();
+		    br.close();
         } catch(IOException e) {
             e.printStackTrace();        
         }

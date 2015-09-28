@@ -11,7 +11,6 @@ public class Database {
 	private String AWS_DB;
     private String AWS_DB_NAME;
 	private Connection c;
-	private Statement st;
     private PreparedStatement pst;
 
     private Properties prop;

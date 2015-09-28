@@ -43,7 +43,8 @@ public class VirtualReader extends Thread {
 			this.awsdb = awsdb;
         }
 
-        private JSONObject parseMessage(String[] data) {
+        @SuppressWarnings("unchecked")
+		private JSONObject parseMessage(String[] data) {
             try {
             
                 JSONParser parser = new JSONParser();

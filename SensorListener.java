@@ -1,8 +1,6 @@
 import java.io.*;
 
 import net.tinyos.message.*;
-import net.tinyos.packet.*;
-import net.tinyos.util.*;
 
 import org.json.simple.parser.*;
 import org.json.simple.JSONObject;
@@ -17,7 +15,8 @@ public class SensorListener implements MessageListener {
             this.awsdb = awsdb;
         }
 
-        public JSONObject parseMessage(Message message) {
+        @SuppressWarnings("unchecked")
+		public JSONObject parseMessage(Message message) {
 
             SensorMsg msg = (SensorMsg) message;
             

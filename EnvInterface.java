@@ -1,11 +1,6 @@
-import java.io.*;
-
 import net.tinyos.message.*;
 import net.tinyos.packet.*;
 import net.tinyos.util.*;
-
-import org.json.simple.parser.*;
-import org.json.simple.JSONObject;
 
 
 public class EnvInterface {
@@ -31,7 +26,7 @@ public class EnvInterface {
     }
   
     private static void usage() {
-        System.err.println("usage: demoNew [-comm <source>] [-port <port>]");
+        System.err.println("usage: package [-comm <source>] [-port <port>]");
     }
   
     public static void main(String[] args) throws Exception {
@@ -82,7 +77,7 @@ public class EnvInterface {
         if (source != null) {
             phoenix = BuildSource.makePhoenix(PrintStreamMessenger.err);
             MoteIF mif = new MoteIF(phoenix);
-            EnvInterface serial = new EnvInterface(mif);
+            new EnvInterface(mif);
         }
     }
 }
