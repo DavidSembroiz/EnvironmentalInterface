@@ -1,5 +1,5 @@
 *.class
 *.properties
-servioticy/data/*
+servioticy/data/data_*
 servioticy/models/sensor_*
 servioticy/res/key
