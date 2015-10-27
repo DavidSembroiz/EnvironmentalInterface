@@ -11,6 +11,7 @@ Underlying middleware for ServIoTicy.
 
 In order to use the delete scripts to clean Service Objects, additional tools are needed:
 
+* cURL
 * PostgreSQL client 
 `sudo apt-get install postgresql-common postgresql-client-<version>`
 * File .pgpass in root directory with the following database info content
