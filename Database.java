@@ -6,10 +6,11 @@ import org.postgresql.ds.PGPoolingDataSource;
 
 public class Database {
 
-	private String AWS_USERNAME;
-	private String AWS_PASSWORD;
-	private String AWS_DB;
-    private String AWS_DB_NAME;
+	private String DB_USERNAME;
+	private String DB_PASSWORD;
+	private String DB;
+    private String DB_NAME;
+    private String DB_TABLE;
 	private Connection c;
     private PreparedStatement pst;
 
@@ -32,10 +33,11 @@ public class Database {
 		try {
 			InputStream is = new FileInputStream("database.properties");
 			prop.load(is);
-			AWS_USERNAME = prop.getProperty("aws_username");
-			AWS_PASSWORD = prop.getProperty("aws_password");
-			AWS_DB = prop.getProperty("aws_db");
-            AWS_DB_NAME = prop.getProperty("aws_db_name");
+			DB_USERNAME = prop.getProperty("db_username");
+			DB_PASSWORD = prop.getProperty("db_password");
+			DB = prop.getProperty("db");
+            DB_NAME = prop.getProperty("db_name");
+            DB_TABLE = prop.getProperty("db_table");
 			
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -44,11 +46,11 @@ public class Database {
 
     private void loadPoolSource() {
 		poolSource = new PGPoolingDataSource();
-		poolSource.setDataSourceName("AWS Data Source");
-		poolSource.setServerName(AWS_DB);
-		poolSource.setDatabaseName(AWS_DB_NAME);
-		poolSource.setUser(AWS_USERNAME);
-		poolSource.setPassword(AWS_PASSWORD);
+		poolSource.setDataSourceName("DB Data Source");
+		poolSource.setServerName(DB);
+		poolSource.setDatabaseName(DB_NAME);
+		poolSource.setUser(DB_USERNAME);
+		poolSource.setPassword(DB_PASSWORD);
 		poolSource.setMaxConnections(20);
 	}
 
@@ -76,7 +78,8 @@ public class Database {
 		try {
             System.out.println("Inserting new SO into AWS RDS...");
 			c = poolSource.getConnection();
-			pst = c.prepareStatement("INSERT INTO ids VALUES (?, ?, ?, ?)");
+            System.out.println(DB_TABLE);
+			pst = c.prepareStatement("INSERT INTO " + DB_TABLE + " VALUES (?, ?, ?, ?)");
 			pst.setString(1, soID);
             pst.setString(2, model);
             pst.setString(3, location);
