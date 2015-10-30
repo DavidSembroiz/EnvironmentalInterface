@@ -51,7 +51,7 @@ public class Database {
 		poolSource.setDatabaseName(DB_NAME);
 		poolSource.setUser(DB_USERNAME);
 		poolSource.setPassword(DB_PASSWORD);
-		poolSource.setMaxConnections(20);
+		poolSource.setMaxConnections(50);
 	}
 
     private void closeConnection(Connection c) {
