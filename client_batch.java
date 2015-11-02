@@ -10,20 +10,28 @@ public class client_batch {
  
 	public static void main(String argv[]) throws Exception {
 
+        /**
+        * number of ids to be executed
+        */
+        int IDS = 10;
+
         int port = -1;
         int id = -1;
         boolean reg = false;
         String mode = "";
 
-        int IDS = 200;
+        
         int THREADS = 50;
-        if (argv.length == 2) {
+        if (argv.length == 4) {
             if (argv[0].equals("-port")) {
                 port = Integer.parseInt(argv[1]);
             }
+            if (argv[2].equals("-ids")) {
+                IDS = Integer.parseInt(argv[3]);
+            }
         }
         else {
-            System.out.println("Usage: java client [-port <PORT_ADDRESS>]");
+            System.out.println("Usage: java client [-port <PORT_ADDRESS>] [-ids <#IDS>]");
             System.exit(1);        
         }
 
@@ -67,7 +75,7 @@ public class client_batch {
 		public void run() {
             try {
                 while (sent < 2) {
-
+                    Thread.sleep(rand.nextInt(50) * 100);
                     double temp = rand.nextDouble() * 40;
                     int light = rand.nextInt(2000);
                     double hum = rand.nextInt(10000) / 100.0;

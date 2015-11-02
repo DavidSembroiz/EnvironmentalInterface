@@ -22,6 +22,7 @@ public class Database {
 	public Database() {
         loadProperties();
         loadPoolSource();
+        createIdTable();
 	}
     
     public void assignUtils(Utils uts) {
@@ -51,7 +52,24 @@ public class Database {
 		poolSource.setDatabaseName(DB_NAME);
 		poolSource.setUser(DB_USERNAME);
 		poolSource.setPassword(DB_PASSWORD);
-		poolSource.setMaxConnections(50);
+		poolSource.setMaxConnections(20);
+	}
+    
+    private void createIdTable() {
+		try {
+			c = poolSource.getConnection();
+			pst = c.prepareStatement("CREATE TABLE IF NOT EXISTS " + DB_TABLE + " ("
+					  	  + "servioticy_id varchar(50) primary key,"
+					  	  + "model varchar(30),"
+					  	  + "location varchar(100),"
+					  	  + "associations varchar(100),"
+					  	  + "created timestamp default current_timestamp(2));");
+			pst.execute();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			closeConnection(c);
+		}
 	}
 
     private void closeConnection(Connection c) {
@@ -78,7 +96,6 @@ public class Database {
 		try {
             System.out.println("Inserting new SO into AWS RDS...");
 			c = poolSource.getConnection();
-            System.out.println(DB_TABLE);
 			pst = c.prepareStatement("INSERT INTO " + DB_TABLE + " VALUES (?, ?, ?, ?)");
 			pst.setString(1, soID);
             pst.setString(2, model);
