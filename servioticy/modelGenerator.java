@@ -85,7 +85,13 @@ public class modelGenerator {
         for (int i = 1; i <= rooms; ++i) {
             createModel(sensors, "xm1000");
             writeObjectToFile(insertRoomNumber(i, sensors++));
-            createModel(sensors, "computer");
+            createModel(sensors, "light");
+            writeObjectToFile(insertRoomNumber(i, sensors++));
+            createModel(sensors, "presence");
+            writeObjectToFile(insertRoomNumber(i, sensors++));
+            createModel(sensors, "power");
+            writeObjectToFile(insertRoomNumber(i, sensors++));
+            createModel(sensors, "airquality");
             writeObjectToFile(insertRoomNumber(i, sensors++));
         }
     }

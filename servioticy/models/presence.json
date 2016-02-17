@@ -1,0 +1,20 @@
+{
+    "name": "Sensor",
+    "description": "",
+    "streams": {
+        "data": {
+            "channels": {
+                "presence": {
+                    "type": "number"
+                }
+            }
+        }
+    },
+    "customFields": {
+        "model": "Presence",
+        "location": "",
+        "associations": ""
+    },
+    "actions": [],
+    "properties": []
+}

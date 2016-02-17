@@ -1,0 +1,20 @@
+{
+    "name": "Sensor",
+    "description": "",
+    "streams": {
+        "data": {
+            "channels": {
+                "airquality": {
+                    "type": "number"
+                }
+            }
+        }
+    },
+    "customFields": {
+        "model": "AirQuality",
+        "location": "",
+        "associations": ""
+    },
+    "actions": [],
+    "properties": []
+}

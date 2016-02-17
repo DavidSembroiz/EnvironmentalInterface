@@ -1,0 +1,20 @@
+{
+    "name": "Sensor",
+    "description": "",
+    "streams": {
+        "data": {
+            "channels": {
+                "light": {
+                    "type": "number"
+                }
+            }
+        }
+    },
+    "customFields": {
+        "model": "Light",
+        "location": "",
+        "associations": ""
+    },
+    "actions": [],
+    "properties": []
+}

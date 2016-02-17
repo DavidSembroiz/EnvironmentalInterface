@@ -104,7 +104,7 @@ public class Database {
 			pst.executeUpdate();
             notifyNewSO(soID);
 		} catch(SQLException e) {
-            uts.revertCreation();
+            //uts.revertCreation();
 			e.printStackTrace();
 		} finally {
 			closeConnection(c);

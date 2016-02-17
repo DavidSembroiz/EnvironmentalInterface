@@ -38,8 +38,12 @@ public class client_batch {
         ExecutorService executor = Executors.newFixedThreadPool(THREADS);
 
         for (int i = 1; i <= IDS; ++i) {
-            if (i%2 == 0) mode = "computer";
-            else mode = "xm1000";
+            if (i%5 == 1) mode = "xm1000";
+            else if (i%5 == 2) mode = "light";
+            else if (i%5 == 3) mode = "presence";
+            else if (i%5 == 4) mode = "power";
+            else mode = "airquality";
+
             Runnable worker = new Client(i, mode, port);
             executor.execute(worker);
         }
@@ -68,20 +72,52 @@ public class client_batch {
             sent = 0;
             message = "";
             rand = new Random();
-            //clientSocket = new Socket("localhost", port);
 		}
+
+        private String lightMessage() {
+            int state = rand.nextInt(2);
+            String message = id + ";light:" + state;
+            return message;
+        }
+
+        private String xm1000Message() {
+            double temp = rand.nextDouble() * 40;
+            int light = rand.nextInt(2000);
+            double hum = rand.nextInt(10000) / 100.0;
+            String message = id + ";temperature:" + temp + ";luminosity:" + light + ";humidity:" + hum;
+            return message;
+        }
+
+        private String presenceMessage() {
+            int state = rand.nextInt(2);
+            String message = id + ";presence:" + state;
+            return message;
+        }
+
+        private String powerMessage() {
+            double state = rand.nextDouble() * 400;
+            String message = id + ";power:" + state;
+            return message;
+        }
  
+        private String airQualityMessage() {
+            int state = rand.nextInt(3);
+            String message = id + ";airquality:" + state;
+            return message;
+        }
+
 		@Override
 		public void run() {
             try {
                 while (sent < 2) {
                     Thread.sleep(rand.nextInt(50) * 100);
-                    double temp = rand.nextDouble() * 40;
-                    int light = rand.nextInt(2000);
-                    double hum = rand.nextInt(10000) / 100.0;
 
-                    if (mode.equals("computer")) message = id + ";computer:off";
-                    else if (mode.equals("xm1000")) message = id + ";temperature:" + temp + ";luminosity:" + light + ";humidity:" + hum;
+                    if (mode.equals("xm1000")) message = xm1000Message();
+                    else if (mode.equals("light")) message = lightMessage(); 
+                    else if (mode.equals("presence")) message = presenceMessage();
+                    else if (mode.equals("power")) message = powerMessage();
+                    else if (mode.equals("airquality")) message = airQualityMessage();
+
                     clientSocket = new Socket("localhost", port);
                     DataOutputStream outToServer = new DataOutputStream(clientSocket.getOutputStream());
                     outToServer.writeBytes(message + '\n');

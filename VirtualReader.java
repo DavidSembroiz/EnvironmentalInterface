@@ -62,7 +62,19 @@ public class VirtualReader extends Thread {
                     } 
                     else if (sensor[0].equals("humidity")) {
                         o.put("current-value", Double.parseDouble(sensor[1]));
-                    }    
+                    }
+                    else if (sensor[0].equals("light")) {
+                        o.put("current-value", Integer.parseInt(sensor[1]));
+                    }
+                    else if (sensor[0].equals("presence")) {
+                        o.put("current-value", Integer.parseInt(sensor[1]));
+                    } 
+                    else if (sensor[0].equals("power")) {
+                        o.put("current-value", Double.parseDouble(sensor[1]));
+                    } 
+                    else if (sensor[0].equals("airquality")) {
+                        o.put("current-value", Integer.parseInt(sensor[1]));
+                    }   
                 }
                 return obj;
             } catch(ParseException e) { e.printStackTrace(); }
