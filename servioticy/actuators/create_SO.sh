@@ -12,7 +12,7 @@ for file in "./actuator_"*; do
     number=$(echo $file | tr -dc '0-9')
 
 
-    echo "$id" > act$number
+    echo "$id" > id$number
 
 done
 
