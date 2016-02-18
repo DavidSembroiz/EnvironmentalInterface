@@ -29,13 +29,12 @@ There are several options to launch the Interface. Currently, virtual, real or b
 java -jar EnvIface.jar [-comm <source>] [-port <port>]
 ```
 
-Once the servers are running, if virtual clients are needed, they are executed as follows:
+Once the servers are running, if virtual sensors are needed, they are executed as follows:
 
 ```
-./run_clients.sh #rooms
-./run_clients_forever.sh #rooms
+java sensors [-port <port>] [-ids <#sensors>]
 ```
 
-Either of those commands will execute the clients, the former only sends 3 messages per client and the later sends messages forever.
+Either of those commands will execute the sensors, sending 2 messages for each of them.
 
 
