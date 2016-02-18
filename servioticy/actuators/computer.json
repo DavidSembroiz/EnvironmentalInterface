@@ -1,0 +1,27 @@
+{
+    "name": "Actuator",
+    "description": "",
+    "streams": {
+        "data": {
+            "channels": {
+            }
+        }
+    },
+    "customFields": {
+        "model": "Computer",
+        "location": ""
+    },
+    "actions": [
+        {
+            "action": "switch_on",
+            "name": "switch computer on",
+            "description": "switches the computer on"        
+        },
+        {
+            "action": "switch_off",
+            "name": "switch computer off",
+            "description": "switches the computer off"  
+        }
+    ],
+    "properties": []
+}

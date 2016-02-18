@@ -1,0 +1,9 @@
+HTTP/1.1 201 Created
+Server: nginx/1.8.1
+Date: Thu, 18 Feb 2016 11:03:34 GMT
+Content-Type: application/json
+Transfer-Encoding: chunked
+Connection: keep-alive
+Location: http://api.servioticy.com/1455793414951c320691680104ef58c3555181030aa11
+
+{"id":"1455793414951c320691680104ef58c3555181030aa11","createdAt":1455793414951}

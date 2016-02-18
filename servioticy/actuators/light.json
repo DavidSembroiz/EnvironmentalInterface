@@ -1,0 +1,27 @@
+{
+    "name": "Actuator",
+    "description": "",
+    "streams": {
+        "data": {
+            "channels": {
+            }
+        }
+    },
+    "customFields": {
+        "model": "Light",
+        "location": ""
+    },
+    "actions": [
+        {
+            "action": "switch_on",
+            "name": "switch lights on",
+            "description": "switches the lights on"        
+        },
+        {
+            "action": "switch_off",
+            "name": "switch lights off",
+            "description": "switches the lights off"  
+        }
+    ],
+    "properties": []
+}

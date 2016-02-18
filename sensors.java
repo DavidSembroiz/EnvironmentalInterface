@@ -6,7 +6,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 
-public class client_batch {
+public class sensors {
  
 	public static void main(String argv[]) throws Exception {
 

@@ -1,0 +1,27 @@
+{
+    "name": "Actuator",
+    "description": "",
+    "streams": {
+        "data": {
+            "channels": {
+            }
+        }
+    },
+    "customFields": {
+        "model": "HVAC",
+        "location": ""
+    },
+    "actions": [
+        {
+            "action": "switch_on",
+            "name": "switch hvac on",
+            "description": "switches the hvac on"        
+        },
+        {
+            "action": "switch_off",
+            "name": "switch hvac off",
+            "description": "switches the hvac off"  
+        }
+    ],
+    "properties": []
+}

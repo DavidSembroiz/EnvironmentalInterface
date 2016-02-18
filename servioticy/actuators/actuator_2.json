@@ -1,0 +1,1 @@
+{"customFields":{"model":"HVAC","location":"upc\/campusnord\/d6001"},"description":"","name":"Actuator","streams":{"data":{"channels":{}}},"properties":[],"actions":[{"description":"switches the hvac on","name":"switch hvac on","action":"switch_on"},{"description":"switches the hvac off","name":"switch hvac off","action":"switch_off"}]}

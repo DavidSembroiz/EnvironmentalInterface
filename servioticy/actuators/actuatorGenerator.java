@@ -4,10 +4,10 @@ import java.nio.file.*;
 import org.json.simple.parser.*;
 import org.json.simple.JSONObject;
 
-public class modelGenerator {
+public class actuatorGenerator {
 
 
-    private static String modelPath = "./models/";
+    private static String modelPath = "./";
     private static String loc = "upc/campusnord/";
     private static File f;
 
@@ -22,10 +22,10 @@ public class modelGenerator {
     }
 
 
-    public static JSONObject insertRoomNumber(int id, int sensor) {
+    public static JSONObject insertRoomNumber(int id, int act) {
         String custfield = "";
         try {
-            String model = modelPath + "sensor_" + sensor + ".json";
+            String model = modelPath + "actuator_" + act + ".json";
             f = new File(model);
             if (f.exists()) {
                 JSONParser parser = new JSONParser();
@@ -35,7 +35,7 @@ public class modelGenerator {
                 return obj;
             }
             else {
-                System.out.println("Unable to read model for sensor " + id);
+                System.out.println("Unable to read model for actuator " + id);
             }
         } catch(IOException|ParseException e) {
             e.printStackTrace();
@@ -63,7 +63,7 @@ public class modelGenerator {
     public static void createModel(int id, String mod) {
 		try {
             Files.copy(Paths.get(modelPath + mod.toLowerCase() + ".json"),
-                       Paths.get(modelPath + "sensor_" + id + ".json"), StandardCopyOption.REPLACE_EXISTING);
+                       Paths.get(modelPath + "actuator_" + id + ".json"), StandardCopyOption.REPLACE_EXISTING);
 		} catch(IOException e) { e.printStackTrace(); }
 	}
     
@@ -76,23 +76,19 @@ public class modelGenerator {
             rooms = Integer.parseInt(argv[0]);
         }
         else {
-            System.out.println("Usage: java modelGenerator #rooms");
+            System.out.println("Usage: java actuatorGenerator #rooms");
             System.exit(1);
         }
 
-        int sensors = 1;
+        int actuators = 1;
 
         for (int i = 1; i <= rooms; ++i) {
-            createModel(sensors, "xm1000");
-            writeObjectToFile(insertRoomNumber(i, sensors++));
-            createModel(sensors, "light");
-            writeObjectToFile(insertRoomNumber(i, sensors++));
-            createModel(sensors, "presence");
-            writeObjectToFile(insertRoomNumber(i, sensors++));
-            createModel(sensors, "power");
-            writeObjectToFile(insertRoomNumber(i, sensors++));
-            createModel(sensors, "airquality");
-            writeObjectToFile(insertRoomNumber(i, sensors++));
+            createModel(actuators, "computer");
+            writeObjectToFile(insertRoomNumber(i, actuators++));
+            createModel(actuators, "hvac");
+            writeObjectToFile(insertRoomNumber(i, actuators++));
+            createModel(actuators, "light");
+            writeObjectToFile(insertRoomNumber(i, actuators++));
         }
     }
 }
