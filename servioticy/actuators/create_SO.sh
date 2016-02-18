@@ -1,8 +1,9 @@
 #!/bin/bash
 
-[ $# -ne 1 ] && { echo "Usage: $0 <API_KEY>"; exit 1; }
+[ $# -ne 0 ] && { echo "Usage: $0"; exit 1; }
 
-key=$(cat $1)
+
+key="`cat ../res/key`"
 
 for file in "./actuator_"*; do
 
