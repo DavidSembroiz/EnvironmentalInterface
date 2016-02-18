@@ -6,7 +6,7 @@ key=$(cat $1)
 
 for file in "./actuator_"*; do
 
-    id=$(curl -i -X POST -H "Content-Type: application/json" \
+    id=$(curl -X POST -H "Content-Type: application/json" \
     -H "Authorization: ${key}" -d @$file http://api.servioticy.com/)
 
     number=$(echo $file | tr -dc '0-9')
