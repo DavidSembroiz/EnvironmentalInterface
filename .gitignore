@@ -3,3 +3,6 @@
 servioticy/data/data_*
 servioticy/models/sensor_*
 servioticy/res/key
+servioticy/res/id*
+servioticy/actuators/actuator_*
+servioticy/actuators/id*
