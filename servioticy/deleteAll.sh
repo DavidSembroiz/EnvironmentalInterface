@@ -14,7 +14,7 @@ for file in "./res/id"*; do
     curl -i -X DELETE -H "Content-Type: application/json" \
     -H "Authorization: ${key}" http://api.servioticy.com/${ide}
 
-    psql -U upc -h aledo.ccaba.upc.edu -d data -c "DELETE FROM ids_pfm WHERE servioticy_id ='${ide}';"
+    psql -U upc -h aledo.ccaba.upc.edu -d data -c "DELETE FROM ids WHERE servioticy_id ='${ide}';"
 
     number=$(echo $file | tr -dc '0-9')
 
