@@ -19,10 +19,12 @@ for file in glob.glob("id*"):
     location = json_model["customFields"]["location"]
     try:
         cur.execute("INSERT INTO actuators (servioticy_id, model, location) VALUES(%s, %s, %s)", (soid, model, location))
-    except:
-        print "Unable to insert into the database"
+    except psycopg2.Error as e:
+        conn.rollback()
+        print "Unable to insert into the database."
+    else:
+        conn.commit()
 
-conn.commit()
 cur.close()
 conn.close()
 
