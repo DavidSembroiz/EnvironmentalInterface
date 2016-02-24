@@ -64,15 +64,16 @@ public class HttpConnection {
 			con.setRequestProperty("Authorization", API_KEY);
 			con.setDoOutput(true);
 			con.setDoInput(true);
-			
 			String data = readFileFromName(model);
-			
 			writeOutput(con.getOutputStream(), data);
 			String response = readHttpResponse(con.getInputStream());
+            System.out.println("Response: " + response);
 			String id = parseID(response);
 			writeToFile(res, id);
+              
             return true;
 		} catch (Exception e) {
+            e.printStackTrace();
             return false;
 		}
 	}

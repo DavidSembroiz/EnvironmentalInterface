@@ -7,14 +7,15 @@ key="`cat ../res/key`"
 
 for file in "./actuator_"*; do
 
-    id=$(curl -X POST -H "Content-Type: application/json" \
-    -H "Authorization: ${key}" -d @$file http://api.servioticy.com/)
-
     number=$(echo $file | tr -dc '0-9')
 
+    if [ ! -f id$number ]; then
 
-    echo "$id" > id$number
+        id=$(curl -X POST -H "Content-Type: application/json" \
+        -H "Authorization: ${key}" -d @$file http://api.servioticy.com/)
 
+        echo "$id" > id$number
+    fi
 done
 
 
