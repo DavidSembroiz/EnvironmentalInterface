@@ -8,9 +8,11 @@ import glob, os, json
 try:
     conn=psycopg2.connect("host='aledo.ccaba.upc.edu' dbname='data' user='upc' password='user'")
     cur = conn.cursor()
+    cur.execute("CREATE TABLE actuators(servioticy_id VARCHAR(50) PRIMARY KEY, model VARCHAR(30), location VARCHAR(100))")
+    conn.commit()
     
-except:
-    print "Unable to connect to the database."
+except psycopg2.Error as e:
+    conn.rollback()
 
 for file in glob.glob("id*"):
     soid = json.loads(open(file).readline())["id"]
