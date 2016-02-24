@@ -1,1 +1,0 @@
-{"customFields":{"model":"Computer","location":"upc\/campusnord\/d6003"},"description":"","name":"Actuator","streams":{"data":{"channels":{}}},"properties":[],"actions":[{"description":"switches the computer on","name":"switch computer on","action":"switch_on"},{"description":"switches the computer off","name":"switch computer off","action":"switch_off"}]}

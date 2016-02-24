@@ -1,1 +1,0 @@
-{"customFields":{"model":"Light","location":"upc\/campusnord\/d6002"},"description":"","name":"Actuator","streams":{"data":{"channels":{}}},"properties":[],"actions":[{"description":"switches the lights on","name":"switch lights on","action":"switch_on"},{"description":"switches the lights off","name":"switch lights off","action":"switch_off"}]}
