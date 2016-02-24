@@ -11,7 +11,7 @@ for file in "./actuator_"*; do
 
     if [ ! -f id$number ]; then
 
-        id=$(curl -X POST -H "Content-Type: application/json" \
+        id=$(curl -s -X POST -H "Content-Type: application/json" \
         -H "Authorization: ${key}" -d @$file http://api.servioticy.com/)
 
         echo "$id" > id$number
