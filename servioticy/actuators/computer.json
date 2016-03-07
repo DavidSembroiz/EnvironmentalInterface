@@ -13,13 +13,13 @@
     },
     "actions": [
         {
-            "action": "switch_on",
-            "name": "switch computer on",
+            "action": "switches computer on",
+            "name": "switch_on",
             "description": "switches the computer on"        
         },
         {
-            "action": "switch_off",
-            "name": "switch computer off",
+            "action": "switches computer off",
+            "name": "switch_off",
             "description": "switches the computer off"  
         }
     ],

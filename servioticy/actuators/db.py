@@ -3,6 +3,7 @@
 import psycopg2
 import glob, os, json
 
+
 # Try to connect
 
 try:
@@ -14,16 +15,18 @@ try:
 except psycopg2.Error as e:
     conn.rollback()
 
-for file in glob.glob("id*"):
-    soid = json.loads(open(file).readline())["id"]
-    json_model = json.loads(open("actuator_" + file[2:] + ".json", "r").readline())
+for f in glob.glob("id*"):
+    soid = json.loads(open(f).readline())["id"]
+    fw = open(f, "w")
+    fw.write(soid)
+    json_model = json.loads(open("actuator_" + f[2:] + ".json", "r").readline())
     model = json_model["customFields"]["model"]
     location = json_model["customFields"]["location"]
     try:
         cur.execute("INSERT INTO actuators (servioticy_id, model, location) VALUES(%s, %s, %s)", (soid, model, location))
     except psycopg2.Error as e:
         conn.rollback()
-        print "Unable to insert into the database."
+        print("Unable to insert into the database.")
     else:
         conn.commit()
 

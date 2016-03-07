@@ -13,13 +13,13 @@
     },
     "actions": [
         {
-            "action": "switch_on",
-            "name": "switch hvac on",
+            "description": "action": "switch_on",
+            "name": "switch_on",
             "description": "switches the hvac on"        
         },
         {
             "action": "switch_off",
-            "name": "switch hvac off",
+            "name": "switch_off",
             "description": "switches the hvac off"  
         }
     ],

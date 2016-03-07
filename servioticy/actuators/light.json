@@ -14,12 +14,12 @@
     "actions": [
         {
             "action": "switch_on",
-            "name": "switch lights on",
+            "name": "switch_on",
             "description": "switches the lights on"        
         },
         {
             "action": "switch_off",
-            "name": "switch lights off",
+            "name": "switch_off",
             "description": "switches the lights off"  
         }
     ],
