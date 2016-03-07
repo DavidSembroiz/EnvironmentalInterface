@@ -13,7 +13,7 @@
     },
     "actions": [
         {
-            "description": "action": "switch_on",
+            "action": "switch_on",
             "name": "switch_on",
             "description": "switches the hvac on"        
         },
