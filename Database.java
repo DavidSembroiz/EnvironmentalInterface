@@ -52,7 +52,7 @@ public class Database {
 		poolSource.setDatabaseName(DB_NAME);
 		poolSource.setUser(DB_USERNAME);
 		poolSource.setPassword(DB_PASSWORD);
-		poolSource.setMaxConnections(20);
+		poolSource.setMaxConnections(50);
 	}
     
     private void createIdTable() {
@@ -84,15 +84,19 @@ public class Database {
 
     private void notifyNewSO(String soID) {
         try {
-            pst = c.prepareStatement("NOTIFY SO_CHANNEL, \'" + soID + "\';");
-            pst.execute();
+            if (c == null) System.out.println("UNABLE TO NOTIFY");
+            else {            
+                pst = c.prepareStatement("NOTIFY SO_CHANNEL, \'" + soID + "\';");
+                pst.execute();
+            }
+
         } catch(SQLException e) {
             e.printStackTrace();        
         }
     }
 
     public void insertSO(String soID, String model, String location, String associations) {
-		c = null;
+		//c = null;
 		try {
             System.out.println("Inserting new SO into AWS RDS...");
 			c = poolSource.getConnection();
@@ -102,7 +106,9 @@ public class Database {
             pst.setString(3, location);
             pst.setString(4, associations);
 			pst.executeUpdate();
-            notifyNewSO(soID);
+            //notifyNewSO(soID);
+            //pst = c.prepareStatement("NOTIFY SO_CHANNEL, \'" + soID + "\';");
+            //pst.execute();
 		} catch(SQLException e) {
             //uts.revertCreation();
 			e.printStackTrace();

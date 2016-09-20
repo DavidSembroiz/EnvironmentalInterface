@@ -9,7 +9,7 @@ cr=$'\r'
 ide="${ide%$cr}"
 
 curl -i -X DELETE -H "Content-Type: application/json" \
--H "Authorization: ${key}" http://api.servioticy.com/${ide}
+-H "Authorization: ${key}" aledo.ccaba.upc.edu:8080/${ide}
 
 psql -U upc -h aledo.ccaba.upc.edu -d data -c "DELETE FROM ids_pfm WHERE servioticy_id ='${ide}';"
 

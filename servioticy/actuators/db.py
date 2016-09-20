@@ -7,6 +7,7 @@ import glob, os, json
 # Try to connect
 
 try:
+    print("Connecting to database")
     conn=psycopg2.connect("host='aledo.ccaba.upc.edu' dbname='data' user='upc' password='user'")
     cur = conn.cursor()
     cur.execute("""CREATE TABLE actuators(servioticy_id VARCHAR(50) PRIMARY KEY, 
@@ -28,6 +29,7 @@ for f in glob.glob("id*"):
     model = json_model["customFields"]["model"]
     location = json_model["customFields"]["location"]
     try:
+        print("Inserting %s into database" % (soid))
         cur.execute("INSERT INTO actuators (servioticy_id, model, location) VALUES(%s, %s, %s)", (soid, model, location))
     except psycopg2.Error as e:
         conn.rollback()

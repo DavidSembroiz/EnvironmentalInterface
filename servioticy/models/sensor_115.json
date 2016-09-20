@@ -1,0 +1,1 @@
+{"customFields":{"model":"AirQuality","location":"upc\/campusnord\/d6023","associations":""},"description":"","name":"Sensor","streams":{"data":{"channels":{"airquality":{"type":"number"}}}},"properties":[],"actions":[]}

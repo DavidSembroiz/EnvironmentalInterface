@@ -1,0 +1,1 @@
+{"customFields":{"model":"Presence","location":"upc\/campusnord\/d6004","associations":""},"description":"","name":"Sensor","streams":{"data":{"channels":{"presence":{"type":"number"}}}},"properties":[],"actions":[]}
