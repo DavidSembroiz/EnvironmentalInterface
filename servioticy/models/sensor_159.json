@@ -1,1 +1,0 @@
-{"customFields":{"model":"Power","location":"upc\/campusnord\/d6032","associations":""},"description":"","name":"Sensor","streams":{"data":{"channels":{"power":{"type":"number"}}}},"properties":[],"actions":[]}

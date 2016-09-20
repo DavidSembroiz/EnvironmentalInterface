@@ -1,1 +1,0 @@
-{"customFields":{"model":"XM1000","location":"upc\/campusnord\/d6014","associations":"temperature\/hvac,humidity\/hvac,luminosity\/light"},"description":"","name":"Sensor","streams":{"data":{"channels":{"humidity":{"unit":"percentage","type":"number"},"luminosity":{"unit":"light","type":"number"},"temperature":{"unit":"degrees","type":"number"}}}},"properties":[],"actions":[]}
