@@ -22,7 +22,7 @@ public class modelGenerator {
     }
 
 
-    public static JSONObject insertRoomNumber(int id, int sensor) {
+    public static JSONObject insertCustomFields(int id, int sensor) {
         String custfield = "";
         try {
             String model = modelPath + "sensor_" + sensor + ".json";
@@ -31,7 +31,9 @@ public class modelGenerator {
                 JSONParser parser = new JSONParser();
 		        JSONObject obj = (JSONObject) parser.parse(new FileReader(f));
                 JSONObject customFields = (JSONObject) obj.get("customFields");
+                String mod = (String) customFields.get("model");
                 customFields.put("location", loc + getProperRoomName(id));
+                customFields.put("model", mod + "_0");
                 return obj;
             }
             else {
@@ -42,6 +44,8 @@ public class modelGenerator {
         }
         return null;
     }
+
+
 
     public static void writeToFile(String content) {
 	    try {
@@ -84,15 +88,15 @@ public class modelGenerator {
 
         for (int i = 1; i <= rooms; ++i) {
             createModel(sensors, "xm1000");
-            writeObjectToFile(insertRoomNumber(i, sensors++));
+            writeObjectToFile(insertCustomFields(i, sensors++));
             createModel(sensors, "light");
-            writeObjectToFile(insertRoomNumber(i, sensors++));
+            writeObjectToFile(insertCustomFields(i, sensors++));
             createModel(sensors, "presence");
-            writeObjectToFile(insertRoomNumber(i, sensors++));
+            writeObjectToFile(insertCustomFields(i, sensors++));
             createModel(sensors, "power");
-            writeObjectToFile(insertRoomNumber(i, sensors++));
+            writeObjectToFile(insertCustomFields(i, sensors++));
             createModel(sensors, "airquality");
-            writeObjectToFile(insertRoomNumber(i, sensors++));
+            writeObjectToFile(insertCustomFields(i, sensors++));
         }
     }
 }
