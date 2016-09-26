@@ -22,7 +22,7 @@ public class Utils {
 
 	public void createDatafile() {
 		try {
-            String model = readSOCustomField(id, "model");
+            String model = readSOCustomField(id, "model").split("_")[0];
             Files.copy(Paths.get(ROOT_PATH + "data/template_" + model.toLowerCase() + ".json"),
                        Paths.get(ROOT_PATH + "data/data_" + Long.toString(id) + ".json"), StandardCopyOption.REPLACE_EXISTING);
 		} catch(IOException e) { 
